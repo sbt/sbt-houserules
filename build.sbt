@@ -4,8 +4,11 @@ lazy val commonSettings = Seq(
 )
 
 lazy val root = (project in file(".")).
-  settings(commonSettings: _*).
-  settings(addSbtPlugin("com.typesafe.sbt" % "sbt-scalariform" % "1.3.0"): _*).
+  settings(
+    commonSettings ++
+    addSbtPlugin("com.typesafe.sbt" % "sbt-scalariform" % "1.3.0") ++
+    addSbtPlugin("com.typesafe.sbt" % "sbt-git" % "0.6.1")
+  : _*).
   settings(
     sbtPlugin := true,
     name := "sbt-houserules"
