@@ -15,10 +15,6 @@ lazy val root = (project in file(".")).
     name := "sbt-houserules",
     description := "sbt plugin for enforcing sbt house rules.",
     licenses := Seq("Apache v2" -> url("https://github.com/sbt/sbt-houserules/blob/master/LICENSE")),
-    publishMavenStyle := false,
-    publishTo := {
-      if (isSnapshot.value) Some(Resolver.sbtPluginRepo("snapshots"))
-      else Some(Resolver.sbtPluginRepo("releases"))
-    },
-    credentials += Credentials(Path.userHome / ".ivy2" / ".sbtcredentials")
+    scmInfo := Some(ScmInfo(url("https://github.com/sbt/sbt-houserules"), "git@github.com:sbt/sbt-houserules.git")),
+    publishMavenStyle := false
   )
