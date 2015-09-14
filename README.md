@@ -3,6 +3,10 @@ sbt-houserules
 
 sbt-houserules is a house rules plugin for sbt modules.
 
+### latest
+
+See the tags for the latest.
+
 ### what each build needs to supply
 
 ```
