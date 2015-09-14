@@ -7,7 +7,8 @@ lazy val root = (project in file(".")).
   settings(
     commonSettings ++
     addSbtPlugin("org.scalariform" % "sbt-scalariform" % "1.5.1") ++
-    addSbtPlugin("com.typesafe.sbt" % "sbt-git" % "0.8.5")
+    addSbtPlugin("com.typesafe.sbt" % "sbt-git" % "0.8.5") ++
+    addSbtPlugin("me.lessis" % "bintray-sbt" % "0.3.0")
   : _*).
   settings(
     sbtPlugin := true,
