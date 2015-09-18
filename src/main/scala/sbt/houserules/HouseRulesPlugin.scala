@@ -9,8 +9,22 @@ object HouseRulesPlugin extends AutoPlugin {
   override def trigger = allRequirements
 
   override def buildSettings: Seq[Def.Setting[_]] = baseBuildSettings
+  override def projectSettings: Seq[Def.Setting[_]] = baseSettings
 
-  val baseBuildSettings: Seq[Def.Setting[_]] = Seq(
+  lazy val baseBuildSettings: Seq[Def.Setting[_]] = Seq(
     organization := "org.scala-sbt"
+  )
+
+  lazy val baseSettings: Seq[Def.Setting[_]] = Seq(
+    scalacOptions ++= Seq("-encoding", "utf8"),
+    scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked", "-Xlint"),
+    scalacOptions  += "-language:higherKinds",
+    scalacOptions  += "-language:implicitConversions",
+    scalacOptions  += "-Xfuture",
+    scalacOptions  += "-Yinline-warnings",
+    scalacOptions  += "-Yno-adapted-args",
+    scalacOptions  += "-Ywarn-dead-code",
+    scalacOptions  += "-Ywarn-numeric-widen",
+    scalacOptions  += "-Ywarn-value-discard"
   )
 }
