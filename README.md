@@ -13,7 +13,6 @@ addSbtPlugin("org.scala-sbt" % "sbt-houserules" % "0.2.1")
 
 ```
 import com.typesafe.tools.mima.core._, ProblemFilters._
-import com.typesafe.tools.mima.plugin.MimaKeys.{ binaryIssueFilters, previousArtifact }
 
 inThisBuild(Seq(
   git.baseVersion := "0.1.0",
