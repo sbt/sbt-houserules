@@ -11,8 +11,8 @@ object BetterMimaPlugin extends AutoPlugin {
   override def requires = plugins.JvmPlugin
   override def trigger = allRequirements
 
-  override def buildSettings: Seq[Def.Setting[_]] = baseBuildSettings
-  lazy val baseBuildSettings: Seq[Setting[_]] = mimaDefaultSettings
+  override def projectSettings: Seq[Def.Setting[_]] = baseSettings
+  lazy val baseSettings: Seq[Setting[_]] = mimaDefaultSettings
 
   object autoImport {
     val failOnProblem: SettingKey[Boolean] = MimaKeys.failOnProblem
