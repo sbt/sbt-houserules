@@ -16,5 +16,6 @@ lazy val root = (project in file(".")).
     addSbtPlugin("com.typesafe" % "sbt-mima-plugin" % "0.1.8"),
     licenses := Seq("Apache v2" -> url("https://github.com/sbt/sbt-houserules/blob/master/LICENSE")),
     scmInfo := Some(ScmInfo(url("https://github.com/sbt/sbt-houserules"), "git@github.com:sbt/sbt-houserules.git")),
-    bintrayOrganization := Some("sbt")
+    bintrayOrganization := Some("sbt"),
+    bintrayRepository := "sbt-plugin-releases"
   )
