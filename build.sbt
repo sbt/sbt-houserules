@@ -1,6 +1,6 @@
 lazy val commonSettings = Seq(
   organization := "org.scala-sbt",
-  version := "0.2.2"
+  version := "0.3.0"
 )
 
 lazy val root = (project in file(".")).
