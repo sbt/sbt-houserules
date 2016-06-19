@@ -25,6 +25,8 @@ object HouseRulesPlugin extends AutoPlugin {
     scalacOptions  += "-Yno-adapted-args",
     scalacOptions  += "-Ywarn-dead-code",
     scalacOptions  += "-Ywarn-numeric-widen",
-    scalacOptions  += "-Ywarn-value-discard"
+    scalacOptions  += "-Ywarn-value-discard",
+    scalacOptions  += "-Ywarn-unused",
+    scalacOptions  += "-Ywarn-unused-import"
   )
 }
