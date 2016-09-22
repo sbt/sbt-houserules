@@ -21,7 +21,10 @@ object HouseRulesPlugin extends AutoPlugin {
     scalacOptions  += "-language:higherKinds",
     scalacOptions  += "-language:implicitConversions",
     scalacOptions  += "-Xfuture",
-    scalacOptions  += "-Yinline-warnings",
+    scalacOptions  ++= PartialFunction.condOpt(CrossVersion.partialVersion(scalaVersion.value)){
+      case Some((2, v)) if v <= 11 =>
+        "-Yinline-warnings"
+    }.toSeq,
     scalacOptions  += "-Yno-adapted-args",
     scalacOptions  += "-Ywarn-dead-code",
     scalacOptions  += "-Ywarn-numeric-widen",
