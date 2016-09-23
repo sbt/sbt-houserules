@@ -31,5 +31,7 @@ object HouseRulesPlugin extends AutoPlugin {
     scalacOptions  += "-Ywarn-value-discard",
     scalacOptions  += "-Ywarn-unused",
     scalacOptions  += "-Ywarn-unused-import"
+  ) ++ Seq(Compile, Test).flatMap(c =>
+    scalacOptions in (c, console) --= Seq("-Ywarn-unused", "-Ywarn-unused-import")
   )
 }
