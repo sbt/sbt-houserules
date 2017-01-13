@@ -21,17 +21,24 @@ object HouseRulesPlugin extends AutoPlugin {
     scalacOptions  += "-language:higherKinds",
     scalacOptions  += "-language:implicitConversions",
     scalacOptions  += "-Xfuture",
-    scalacOptions  ++= PartialFunction.condOpt(CrossVersion.partialVersion(scalaVersion.value)){
-      case Some((2, v)) if v <= 11 =>
-        "-Yinline-warnings"
-    }.toSeq,
+    scalacOptions ++= "-Yinline-warnings".ifScala211Minus.value.toList,
     scalacOptions  += "-Yno-adapted-args",
     scalacOptions  += "-Ywarn-dead-code",
     scalacOptions  += "-Ywarn-numeric-widen",
     scalacOptions  += "-Ywarn-value-discard",
-    scalacOptions  += "-Ywarn-unused",
-    scalacOptions  += "-Ywarn-unused-import"
+    scalacOptions ++= "-Ywarn-unused".ifScala211Plus.value.toList,
+    scalacOptions ++= "-Ywarn-unused-import".ifScala211Plus.value.toList
   ) ++ Seq(Compile, Test).flatMap(c =>
     scalacOptions in (c, console) --= Seq("-Ywarn-unused", "-Ywarn-unused-import")
   )
+
+  private def scalaPartV = Def setting (CrossVersion partialVersion scalaVersion.value)
+
+  private implicit final class AnyWithIfScala[A](val __x: A) {
+    def ifScala(p: Int => Boolean) = Def setting (scalaPartV.value collect { case (2, y) if p(y) => __x })
+    def ifScalaLte(v: Int)         = ifScala(_ <= v)
+    def ifScalaGte(v: Int)         = ifScala(_ >= v)
+    def ifScala211Minus            = ifScalaLte(11)
+    def ifScala211Plus             = ifScalaGte(11)
+  }
 }
