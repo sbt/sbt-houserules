@@ -1,5 +1,4 @@
-package sbt
-package houserules
+package sbthouserules
 
 import sbt._
 import Keys._
