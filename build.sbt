@@ -10,13 +10,13 @@ lazy val root = (project in file(".")).
     name := "sbt-houserules",
     description := "sbt plugin for enforcing sbt house rules.",
 
-    addSbtPlugin("org.scalariform"  % "sbt-scalariform"       % "1.6.0"),
-    addSbtPlugin("com.typesafe.sbt" % "sbt-git"               % "0.8.5"),
-    addSbtPlugin("me.lessis"        % "bintray-sbt"           % "0.3.0"),
-    addSbtPlugin("org.scalastyle"   % "scalastyle-sbt-plugin" % "0.8.0"),
-    addSbtPlugin("com.typesafe"     % "sbt-mima-plugin"       % "0.1.11"),
-    addSbtPlugin("com.eed3si9n"     % "sbt-doge"              % "0.1.5"),
-    addSbtPlugin("com.jsuereth"     % "sbt-pgp"               % "1.0.0"),
+    // addSbtPlugin("com.lucidchart"    % "sbt-scalafmt"         % "0.3"),
+
+    addSbtPlugin("com.typesafe.sbt" % "sbt-git"               % "0.9.3"),
+    addSbtPlugin("org.foundweekends" % "sbt-bintray"          % "0.4.0"),
+    // addSbtPlugin("org.scalastyle"   % "scalastyle-sbt-plugin" % "0.8.0"),
+    // addSbtPlugin("com.typesafe"     % "sbt-mima-plugin"       % "0.1.11"),
+    addSbtPlugin("com.jsuereth"     % "sbt-pgp"               % "1.1.0-M1"),
 
     licenses := Seq("Apache v2" -> url("https://github.com/sbt/sbt-houserules/blob/master/LICENSE")),
     scmInfo := Some(ScmInfo(url("https://github.com/sbt/sbt-houserules"), "git@github.com:sbt/sbt-houserules.git")),
