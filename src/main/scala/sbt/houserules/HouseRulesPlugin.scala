@@ -34,10 +34,10 @@ object HouseRulesPlugin extends AutoPlugin {
   private def scalaPartV = Def setting (CrossVersion partialVersion scalaVersion.value)
 
   private implicit final class AnyWithIfScala[A](val __x: A) {
-    def ifScala(p: Int => Boolean) = Def setting (scalaPartV.value collect { case (2, y) if p(y) => __x })
-    def ifScalaLte(v: Int)         = ifScala(_ <= v)
-    def ifScalaGte(v: Int)         = ifScala(_ >= v)
-    def ifScala211Minus            = ifScalaLte(11)
-    def ifScala211Plus             = ifScalaGte(11)
+    def ifScala(p: Long => Boolean) = Def setting (scalaPartV.value collect { case (2, y) if p(y) => __x })
+    def ifScalaLte(v: Long)         = ifScala(_ <= v)
+    def ifScalaGte(v: Long)         = ifScala(_ >= v)
+    def ifScala211Minus             = ifScalaLte(11)
+    def ifScala211Plus              = ifScalaGte(11)
   }
 }
