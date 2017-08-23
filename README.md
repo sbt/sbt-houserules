@@ -8,7 +8,7 @@ sbt-houserules is a house rules plugin for sbt modules.
 See https://github.com/sbt/sbt-houserules/releases for the latest version number.
 
 ```scala
-addSbtPlugin("org.scala-sbt" % "sbt-houserules" % "X.Y.Z")
+addSbtPlugin("org.scala-sbt" % "sbt-houserules" % "0.3.4")
 ```
 
 ### what each build needs to supply
