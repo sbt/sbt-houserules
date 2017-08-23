@@ -1,17 +1,14 @@
-// package sbthouserules
+package sbthouserules
 
-// import sbt._
-// import Keys._
-// import Path._
-// import org.scalastyle.sbt.ScalastylePlugin._
+import sbt._
+import com.lucidchart.sbt.scalafmt.ScalafmtCorePlugin, ScalafmtCorePlugin.autoImport._
 
-// object StylePlugin extends AutoPlugin {
-//   override def requires = plugins.JvmPlugin
-//   override def trigger = allRequirements
+object StylePlugin extends AutoPlugin {
+  override def requires = plugins.JvmPlugin && ScalafmtCorePlugin
+  override def trigger = allRequirements
 
-//   override def projectSettings: Seq[Def.Setting[_]] = baseSettings
-
-//   lazy val baseSettings: Seq[Setting[_]] = Seq(
-//     scalastyleConfig := { new File((baseDirectory in LocalRootProject).value, "scalastyle-config.xml") }
-//   )
-// }
+  override def buildSettings = Seq(
+    scalafmtVersion := "1.2.0",
+    scalafmtOnCompile := true
+  )
+}
