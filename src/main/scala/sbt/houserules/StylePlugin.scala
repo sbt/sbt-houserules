@@ -9,6 +9,7 @@ object StylePlugin extends AutoPlugin {
 
   override def buildSettings = Seq(
     scalafmtVersion := "1.2.0",
-    scalafmtOnCompile := true
+    scalafmtOnCompile := true,
+    scalafmtOnCompile in Sbt := false,
   )
 }
