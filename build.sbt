@@ -13,7 +13,7 @@ lazy val root = (project in file(".")).
     name := "sbt-houserules",
     description := "sbt plugin for enforcing sbt house rules.",
 
-    addSbtPlugin("com.lucidchart"    % "sbt-scalafmt"      % "1.10"),
+    addSbtPlugin("com.lucidchart"    % "sbt-scalafmt"      % "1.12"),
     addSbtPlugin("com.typesafe.sbt"  % "sbt-git"           % "0.9.3"),
     addSbtPlugin("ch.epfl.scala"     % "sbt-release-early" % "2.0.0"),
     addSbtPlugin("com.typesafe"      % "sbt-mima-plugin"   % "0.1.18"),
