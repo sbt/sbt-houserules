@@ -4,9 +4,11 @@ import sbt._
 import Keys._
 import bintray.BintrayPlugin
 import bintray.BintrayPlugin.autoImport._
+import ch.epfl.scala.sbt.release.ReleaseEarlyPlugin
+import ch.epfl.scala.sbt.release.ReleaseEarlyPlugin.autoImport._
 
-object BintraySettingPlugin extends AutoPlugin {
-  override def requires = plugins.IvyPlugin && BintrayPlugin
+object SbtReleaseEarlyPlugin extends AutoPlugin {
+  override def requires = plugins.IvyPlugin && BintrayPlugin && ReleaseEarlyPlugin
   override def trigger = allRequirements
 
   override def buildSettings: Seq[Def.Setting[_]] = baseBuildSettings
@@ -22,9 +24,10 @@ object BintraySettingPlugin extends AutoPlugin {
       Developer("gkossakowski", "Grzegorz Kossakowski", "@gkossakowski", url("https://github.com/gkossakowski")),
       Developer("Duhemm", "Martin Duhem", "@Duhemm", url("https://github.com/Duhemm"))
     ),
-    bintrayReleaseOnPublish := false,
     bintrayOrganization := Some("sbt"),
-    bintrayRepository := "maven-releases"
+    bintrayRepository := "maven-releases",
+    // Public pgp rings have to be set up in the downstream projects
+    releaseEarlyWith := BintrayPublisher
   )
 
   lazy val baseSettings: Seq[Setting[_]] = Seq(
