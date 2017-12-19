@@ -1,6 +1,6 @@
 lazy val commonSettings = Seq(
   organization := "org.scala-sbt",
-  version := "0.3.5-SNAPSHOT"
+  version := "0.3.5"
 )
 
 sbtVersion in Global := "1.0.4" // must be Global, otherwise ^^ won't change anything
