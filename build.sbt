@@ -15,7 +15,7 @@ lazy val root = (project in file(".")).
 
     addSbtPlugin("com.lucidchart"    % "sbt-scalafmt"    % "1.14"),
     addSbtPlugin("com.typesafe.sbt"  % "sbt-git"         % "0.9.3"),
-    addSbtPlugin("org.foundweekends" % "sbt-bintray"     % "0.5.2"),
+    addSbtPlugin("org.foundweekends" % "sbt-bintray"     % "0.5.4"),
     addSbtPlugin("com.typesafe"      % "sbt-mima-plugin" % "0.1.18"),
     addSbtPlugin("com.jsuereth"      % "sbt-pgp"         % "1.1.0"),
 
