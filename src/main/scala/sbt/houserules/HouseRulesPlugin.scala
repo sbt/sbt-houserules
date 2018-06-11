@@ -21,12 +21,12 @@ object HouseRulesPlugin extends AutoPlugin {
     scalacOptions  += "-language:implicitConversions",
     scalacOptions  += "-Xfuture",
     scalacOptions ++= "-Yinline-warnings".ifScala211Minus.value.toList,
-    scalacOptions  += "-Yno-adapted-args",
+    scalacOptions ++= "-Yno-adapted-args".ifScala212Minus.value.toList,
     scalacOptions  += "-Ywarn-dead-code",
     scalacOptions  += "-Ywarn-numeric-widen",
     scalacOptions  += "-Ywarn-value-discard",
     scalacOptions ++= "-Ywarn-unused".ifScala211Plus.value.toList,
-    scalacOptions ++= "-Ywarn-unused-import".ifScala211Plus.value.toList
+    scalacOptions ++= "-Ywarn-unused-import".ifScala(v => 11 <= v && v <= 12).value
   ) ++ Seq(Compile, Test).flatMap(c =>
     scalacOptions in (c, console) --= Seq("-Ywarn-unused", "-Ywarn-unused-import")
   )
@@ -39,5 +39,6 @@ object HouseRulesPlugin extends AutoPlugin {
     def ifScalaGte(v: Long)         = ifScala(_ >= v)
     def ifScala211Minus             = ifScalaLte(11)
     def ifScala211Plus              = ifScalaGte(11)
+    def ifScala212Minus             = ifScalaLte(12)
   }
 }
