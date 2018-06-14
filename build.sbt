@@ -1,17 +1,11 @@
-lazy val commonSettings = Seq(
-  organization := "org.scala-sbt",
-  version := "0.3.7-SNAPSHOT"
-)
+ThisBuild / version := "0.3.8-SNAPSHOT"
 
-sbtVersion in Global := "1.0.4" // must be Global, otherwise ^^ won't change anything
-crossSbtVersions := List("0.13.13", "1.0.4")
+Global / sbtVersion := "1.1.6" // must be Global, otherwise ^^ won't change anything
 
-lazy val root = (project in file(".")).
-  settings(
-    commonSettings,
+lazy val root = (project in file("."))
+  .settings(
     sbtPlugin := true,
     name := "sbt-houserules",
-    description := "sbt plugin for enforcing sbt house rules.",
 
     addSbtPlugin("com.lucidchart"    % "sbt-scalafmt"    % "1.14"),
     addSbtPlugin("com.typesafe.sbt"  % "sbt-git"         % "1.0.0"),
@@ -19,8 +13,7 @@ lazy val root = (project in file(".")).
     addSbtPlugin("com.typesafe"      % "sbt-mima-plugin" % "0.3.0"),
     addSbtPlugin("com.jsuereth"      % "sbt-pgp"         % "1.1.1"),
 
-    licenses := Seq("Apache v2" -> url("https://github.com/sbt/sbt-houserules/blob/master/LICENSE")),
-    scmInfo := Some(ScmInfo(url("https://github.com/sbt/sbt-houserules"), "git@github.com:sbt/sbt-houserules.git")),
     bintrayOrganization := Some("sbt"),
-    bintrayRepository := "sbt-plugin-releases"
+    bintrayRepository := "sbt-plugin-releases",
+    crossSbtVersions := List("0.13.13", "1.1.6"),
   )

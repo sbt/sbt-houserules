@@ -5,10 +5,10 @@ sbt-houserules is a house rules plugin for sbt modules.
 
 ### setup
 
-See https://github.com/sbt/sbt-houserules/releases for the latest version number.
+![Bintray version](https://img.shields.io/bintray/v/sbt/sbt-plugin-releases/sbt-houserules.svg)
 
 ```scala
-addSbtPlugin("org.scala-sbt" % "sbt-houserules" % "0.3.5")
+addSbtPlugin("org.scala-sbt" % "sbt-houserules" % "x.y.z")
 ```
 
 ### what each build needs to supply
