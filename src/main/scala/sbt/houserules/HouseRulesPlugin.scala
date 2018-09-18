@@ -20,15 +20,15 @@ object HouseRulesPlugin extends AutoPlugin {
     scalacOptions  += "-language:higherKinds",
     scalacOptions  += "-language:implicitConversions",
     scalacOptions  += "-Xfuture",
+    scalacOptions ++= "-Xfatal-warnings".ifScala(_ == 12).value.toList,
     scalacOptions ++= "-Yinline-warnings".ifScala211Minus.value.toList,
     scalacOptions ++= "-Yno-adapted-args".ifScala212Minus.value.toList,
     scalacOptions  += "-Ywarn-dead-code",
     scalacOptions  += "-Ywarn-numeric-widen",
     scalacOptions  += "-Ywarn-value-discard",
-    scalacOptions ++= "-Ywarn-unused".ifScala211Plus.value.toList,
     scalacOptions ++= "-Ywarn-unused-import".ifScala(v => 11 <= v && v <= 12).value
   ) ++ Seq(Compile, Test).flatMap(c =>
-    scalacOptions in (c, console) --= Seq("-Ywarn-unused", "-Ywarn-unused-import")
+    scalacOptions in (c, console) --= Seq("-Ywarn-unused-import", "-Xlint")
   )
 
   private def scalaPartV = Def setting (CrossVersion partialVersion scalaVersion.value)
