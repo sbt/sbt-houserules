@@ -1,4 +1,4 @@
-ThisBuild / version := "0.3.8-SNAPSHOT"
+ThisBuild / version := "0.3.10-SNAPSHOT"
 
 Global / sbtVersion := "1.1.6" // must be Global, otherwise ^^ won't change anything
 
