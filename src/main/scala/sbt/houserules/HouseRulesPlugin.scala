@@ -20,7 +20,12 @@ object HouseRulesPlugin extends AutoPlugin {
     scalacOptions  += "-language:higherKinds",
     scalacOptions  += "-language:implicitConversions",
     scalacOptions  += "-Xfuture",
-    scalacOptions ++= "-Xfatal-warnings".ifScala(_ == 12).value.toList,
+    scalacOptions ++= "-Xfatal-warnings".ifScala(v => {
+      sys.props.get("sbt.build.fatal") match {
+        case Some(_) => java.lang.Boolean.getBoolean("sbt.build.fatal")
+        case _       => v == 12
+      }
+    }).value.toList,
     scalacOptions ++= "-Yinline-warnings".ifScala211Minus.value.toList,
     scalacOptions ++= "-Yno-adapted-args".ifScala212Minus.value.toList,
     scalacOptions  += "-Ywarn-dead-code",
