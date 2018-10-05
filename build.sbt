@@ -7,7 +7,6 @@ lazy val root = (project in file("."))
     sbtPlugin := true,
     name := "sbt-houserules",
 
-    addSbtPlugin("com.lucidchart"    % "sbt-scalafmt"    % "1.14"),
     addSbtPlugin("com.typesafe.sbt"  % "sbt-git"         % "1.0.0"),
     addSbtPlugin("org.foundweekends" % "sbt-bintray"     % "0.5.4"),
     addSbtPlugin("com.typesafe"      % "sbt-mima-plugin" % "0.3.0"),
